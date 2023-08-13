@@ -1,15 +1,28 @@
-import {BASE_URL, PROFILE, CHAT_HISTORY, CONNECTIONS} from "./CONSTANTS";
+import axios from "axios";
+import {BASE_URL, PROFILE, CHAT_HISTORY, CONNECTIONS} from "./CONSTANTS.ts";
 
-function getProfileData(){
-    let url = PROFILE;
+export async function getProfileData() : Promise<ProfileInfo>{
+    let request: ApiRequest = {
+        url: PROFILE,
+        METHOD: API_METHOD.GET
+    }
+
+    return makeApiCall(request) as unknown as ProfileInfo;
 }
 
-function getConnections(){
+export function getConnections(){
     let url = CONNECTIONS;
 }
 
-function getChatHistory(){
+export function getChatHistory(){
     let url = CHAT_HISTORY;
+}
+
+export type ProfileInfo = {
+    username: string,
+    status?: string,
+    createdAt?: number,
+    profileImage?: string
 }
 
 type ApiRequest = {
@@ -23,6 +36,21 @@ enum API_METHOD {
     GET, POST
 }
 
-function makeApiCall(apiRequest: ApiRequest){
+async function makeApiCall(apiRequest: ApiRequest): Promise<any>{
 
+    const URL = BASE_URL+apiRequest.url;
+
+    switch(apiRequest.METHOD){
+
+        case API_METHOD.GET:
+            
+            const response = await fetch(URL);
+            const data = await response.json();
+            console.log("Data: ", data);
+            return data;
+
+        case API_METHOD.POST:
+
+             
+    }
 }

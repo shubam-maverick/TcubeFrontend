@@ -1,9 +1,9 @@
-import InputEmail from "../../components/input-email";
+import InputEmail from "../../components/input-email/index.tsx";
 import InputPassword from "../../components/input-password";
 import Button from "../../components/button";
 import React from "react";
 
-export function Login() {
+export default function Login() {
 
     let submit = () => {
         // post call for login
