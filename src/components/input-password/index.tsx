@@ -1,17 +1,16 @@
-import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import {useState} from "react";
 
-export default function InputPassword() {
+export function InputPassword(props: { value: string, onChange?: Function, classes?: string }) {
+
+    const [password, setPassword] = useState(props.value);
+
+    function onPasswordChange(e: any) {
+        const val = e.target.value;
+        setPassword(password);
+        onPasswordChange?.(val);
+    }
+
     return (
-      <div className="row form-outline">
-        <div className="col-2">
-          <label className="form-label" htmlFor="typeEmail">
-            Password
-          </label>
-        </div>
-        <div className="col-10">
-          <input type="pasword" id="typePassword" className="form-control" />
-        </div>
-      </div>
+        <input type="password" value={password} onChange={onPasswordChange} className={props.classes || ""}/>
     );
 }

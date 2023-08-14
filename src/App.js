@@ -1,11 +1,11 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './pages/login/index.tsx';
-import SingUp from './pages/signup/index.tsx';
+import SignUp from './pages/signup/index.tsx';
 import { ChatPage } from './pages/chat/index.tsx';
 
 const router =createBrowserRouter([
-  {path:'/', element : <SingUp /> },
+  {path:'/', element : <SignUp /> },
   {path:'/login', element: <Login/>},
   {path:'/home', element:<ChatPage/>}
 ]);
