@@ -1,18 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import Profile from './pages/profile/index.tsx'
-import Avatar from './components/avatar/index.tsx'
-import InputPassword from './components/input-password/index.tsx'
-import InputEmail from './components/input-email/index.tsx'
-import Button from './components/button/index.tsx'
-import ConnectionView from './components/connection-view/index.tsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Login from './pages/login/index.tsx';
+import SingUp from './pages/signup/index.tsx';
+import { ChatPage } from './pages/chat/index.tsx';
+
+const router =createBrowserRouter([
+  {path:'/', element : <SingUp /> },
+  {path:'/login', element: <Login/>},
+  {path:'/home', element:<ChatPage/>}
+]);
 
 function App() {
   return (
-    <div className="App">
-       <Profile/>
-       {/* <ConnectionView/> */}
-    </div>
+    // <div className="App">
+    //    <Login/>
+    // </div>
+    <RouterProvider router = {router}/>
   );
 }
 

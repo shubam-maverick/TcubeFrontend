@@ -1,7 +1,7 @@
 import React from "react";
 import SignUpForm from "../../components/signupForm/index.tsx";
 
-export default function SinguP() {
+export default function SingUp() {
   let submit = () => {
     // post call for login
   };
