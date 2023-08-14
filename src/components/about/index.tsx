@@ -36,7 +36,7 @@ export default function About(props : {name :string, mobile : number, email : st
           <hr />
           <div className="row">
             <div className="col-sm-3">
-              <p className="mb-0">Address</p>
+              <p className="mb-0">Status</p>
             </div>
             <div className="col-sm-9">
               <p className="text-muted mb-0">{props.status}</p>
