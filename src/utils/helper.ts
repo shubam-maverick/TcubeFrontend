@@ -1,28 +1,40 @@
-import {BASE_URL, PROFILE, CHAT_HISTORY, CONNECTIONS} from "./CONSTANTS";
+import {CHAT_HISTORY, CONNECTIONS, PROFILE, SIGNUP} from "./CONSTANTS";
+import {ChatHistory, ConnectionInfo, ProfileInfo} from "./data";
+import {API_METHOD, ApiRequest, makeApiCall} from "./apiHelper";
 
-function getProfileData(){
-    let url = PROFILE;
+export async function getProfileData(): Promise<ProfileInfo> {
+    let request: ApiRequest = {
+        url: PROFILE,
+        METHOD: API_METHOD.GET
+    }
+
+    return await makeApiCall(request) as Promise<ProfileInfo>;
 }
 
-function getConnections(){
-    let url = CONNECTIONS;
+export async function getConnections(): Promise<ConnectionInfo> {
+    let request: ApiRequest = {
+        url: CONNECTIONS,
+        METHOD: API_METHOD.GET
+    }
+    return await makeApiCall(request)
 }
 
-function getChatHistory(){
-    let url = CHAT_HISTORY;
+export async function getChatHistory(): Promise<ChatHistory> {
+    let request: ApiRequest = {
+        url: CHAT_HISTORY,
+        METHOD: API_METHOD.GET
+    }
+
+    return await makeApiCall(request)
 }
 
-type ApiRequest = {
-    METHOD: API_METHOD,
-    url: string,
-    body?: object,
-    queryParams?: object
+export async function signUp(username:string, password:string){
+    console.log("got it", username , password);
+    let request : ApiRequest = {
+        url : SIGNUP,
+        METHOD: API_METHOD.POST,
+        body : {emailId : username, password : password}
+    }
+    makeApiCall(request);
 }
 
-enum API_METHOD {
-    GET, POST
-}
-
-function makeApiCall(apiRequest: ApiRequest){
-
-}

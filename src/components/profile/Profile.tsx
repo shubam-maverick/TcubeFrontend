@@ -1,9 +1,9 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import {ProfileInfo} from "../../utils/data";
 
 
 const Profile = () => {
-    const baseUrl = "https://192.168.0.115.61113:8080";
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<ProfileInfo>();
 
     useEffect(() => {
         fetch("http://192.168.0.115:8080/profile")

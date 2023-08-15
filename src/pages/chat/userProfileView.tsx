@@ -1,9 +1,9 @@
 import React from "react";
 
-export function Search() {
+export function UserProfileView() {
     return (
         <div>
-            Search
+            User Profile view
         </div>
     )
 }
