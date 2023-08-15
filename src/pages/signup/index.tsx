@@ -7,6 +7,7 @@ import Card from "../../components/card";
 import { Avatar } from "../../components/avatar";
 import { Button } from "../../components/button";
 import {signUp} from "../../utils/helper";
+import Banner from "../../components/banner";
 
 
 
@@ -14,9 +15,30 @@ export default function SignUp() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [visible, setVisibility] = useState(false);
 
     const onSubmit = () => {
+        setVisibility(false);
         signUp(email,password);
+    }
+
+    const onError = () => {
+        console.log("error");
+        setVisibility(true);
+    }
+
+    const validation = (email : string)=>{
+        const valid = String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+          if(valid){
+            return true;
+          }
+          else{
+            return false;
+          }
     }
 
     return (
@@ -40,6 +62,7 @@ export default function SignUp() {
                   />
                 </FormField>
               </Form>
+             {visible && <Banner/>}
             </div>
 
             <div className={"col-md-4"}>
@@ -50,7 +73,11 @@ export default function SignUp() {
               />
             </div>
           </div>
-          <Button label={"Sign up"} onClick= {onSubmit } classes= {"col-md-8"}/>
+          <Button
+            label={"Sign up"}
+            onClick={validation(email) ? onSubmit : onError}
+            classes={"col-md-8"}
+          />
         </Card>
       </div>
     );

@@ -13,6 +13,6 @@ export function InputEmail(props: { value: string, onChange?: Function, classes?
     }
 
     return (
-        <input type="email" className={props.classes || ""} value={email} onChange={onEmailChange}/>
+        <input type="email" className={props.classes || ""} value={email} onChange={onEmailChange}  />
     );
 }
