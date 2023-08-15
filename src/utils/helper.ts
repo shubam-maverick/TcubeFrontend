@@ -33,7 +33,7 @@ export async function signUp(username:string, password:string){
     let request : ApiRequest = {
         url : SIGNUP,
         METHOD: API_METHOD.POST,
-        body : {email : username, password : password}
+        body : {emailId : username, password : password}
     }
     makeApiCall(request);
 }

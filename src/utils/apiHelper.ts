@@ -34,11 +34,11 @@ export async function makeApiCall(apiRequest: ApiRequest): Promise<ApiResponse> 
                 .then(function (response) {
                     console.log(response);
                     apiResponse=  response;
-                  
+                    return apiResponse;
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-                return apiResponse;
+                return apiResponse
     }
 }
