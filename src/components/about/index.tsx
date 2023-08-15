@@ -4,8 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 export default function About(props : {name :string, mobile : number, email : string, status : string}) {
   return (
     <div className="col-lg-8">
-      <div className="card mb-4">
-        <div className="card-body">
+      
           <div className="row">
             <div className="col-sm-3">
               <p className="mb-0">Full Name</p>
@@ -42,7 +41,6 @@ export default function About(props : {name :string, mobile : number, email : st
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    
   );
 }

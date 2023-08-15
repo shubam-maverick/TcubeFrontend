@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import React from "react";
 
-export function Button(props: { label: string, onClick?: Function }) {
+export function Button(props: { label: string, onClick?: Function, classes? : string }) {
 
     let onButtonClick = () => {
         console.log("Button Clicked");

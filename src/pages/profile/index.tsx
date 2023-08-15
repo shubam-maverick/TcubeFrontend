@@ -6,6 +6,7 @@ import {DEFAULT_IMAGE} from "../../utils/CONSTANTS";
 import SettingsSide from "../../components/settings-side-panel";
 import {ProfileInfo} from "../../utils/data";
 import {getProfileData} from "../../utils/helper";
+import Card from "../../components/card";
 
 export default function Profile() {
     const [data, setData] = useState<ProfileInfo>();
@@ -21,26 +22,32 @@ export default function Profile() {
     }, []);
 
     return (
-        <div>
-            <div className="alert alert-secondary" role="alert">
-                <div className="row">
-                    <div className="col-4">
-                        <Avatar
-                            imageUrl={data?.profileImage || DEFAULT_IMAGE}
-                        />
-                    </div>
-                    <div className="col-8">
-                        <div>{data?.username}</div>
-                        <div>{data?.status}</div>
-                        <div>{joinedAtDate}</div>
-                        <About name={data?.username || ""} mobile={0} email={""} status={""}/>
-                    </div>
-                </div>
+      <div>
+        <div className="alert alert-secondary" role="alert">
+          <div className="row">
+            <Card classes={"col-md-4"}>
+              <div className="col-4">
+                <Avatar imageUrl={data?.profileImage || DEFAULT_IMAGE} />
+              </div>
 
-                <div className="col-md-4">
-                    <SettingsSide/>
-                </div>
-            </div>
+            </Card>
+
+            <Card classes={"col-md-6"}>
+              <div>{data?.username}</div>
+              <div>{data?.status}</div>
+              <div>{joinedAtDate}</div>
+              <About
+                name={data?.username || ""}
+                mobile={0}
+                email={""}
+                status={""}
+              />
+          </Card>
         </div>
+          <Card classes={"col-md-4"}>
+            <SettingsSide />
+          </Card>
+        </div>
+      </div>
     );
 }

@@ -1,5 +1,6 @@
 import {BASE_URL} from "./CONSTANTS";
 import {ApiResponse} from "./data";
+import axios from "axios";
 
 export type ApiRequest = {
     METHOD: API_METHOD,
@@ -12,7 +13,7 @@ export enum API_METHOD {
     GET, POST
 }
 
-export async function makeApiCall(apiRequest: ApiRequest): Promise<ApiResponse> {
+export async function makeApiCall(apiRequest: ApiRequest): Promise<ApiResponse>  {
 
     const URL = BASE_URL + apiRequest.url;
 
@@ -26,8 +27,18 @@ export async function makeApiCall(apiRequest: ApiRequest): Promise<ApiResponse> 
             return data;
 
         case API_METHOD.POST:
-        default:
-            return {}
-
+            let apiResponse : ApiResponse='';
+            axios.post(URL, 
+                    apiRequest.body
+                )
+                .then(function (response) {
+                    console.log(response);
+                    apiResponse=  response;
+                  
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+                return apiResponse;
     }
 }

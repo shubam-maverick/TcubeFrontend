@@ -1,4 +1,4 @@
-import {CHAT_HISTORY, CONNECTIONS, PROFILE} from "./CONSTANTS";
+import {CHAT_HISTORY, CONNECTIONS, PROFILE, SIGNUP} from "./CONSTANTS";
 import {ChatHistory, ConnectionInfo, ProfileInfo} from "./data";
 import {API_METHOD, ApiRequest, makeApiCall} from "./apiHelper";
 
@@ -26,5 +26,15 @@ export async function getChatHistory(): Promise<ChatHistory> {
     }
 
     return await makeApiCall(request)
+}
+
+export async function signUp(username:string, password:string){
+    console.log("got it", username , password);
+    let request : ApiRequest = {
+        url : SIGNUP,
+        METHOD: API_METHOD.POST,
+        body : {email : username, password : password}
+    }
+    makeApiCall(request);
 }
 

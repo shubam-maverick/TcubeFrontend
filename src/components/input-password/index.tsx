@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "bootstrap/dist/css/bootstrap.css";
 
 export function InputPassword(props: { value: string, onChange?: Function, classes?: string }) {
 
@@ -6,8 +7,9 @@ export function InputPassword(props: { value: string, onChange?: Function, class
 
     function onPasswordChange(e: any) {
         const val = e.target.value;
-        setPassword(password);
-        onPasswordChange?.(val);
+        console.log("password val ", val);
+        setPassword(val);
+        props.onChange?.(val);
     }
 
     return (
