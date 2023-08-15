@@ -1,23 +1,39 @@
-import {Form, FormField} from "../../components/form/index.tsx";
-import {InputEmail} from "../../components/input-email/index.tsx";
-import {InputPassword} from "../../components/input-password/index.tsx";
-import {useState} from "react";
+import React, {useState} from "react";
+import {Form, FormField} from "../../components/form";
+import {InputEmail} from "../../components/input-email";
+import {InputPassword} from "../../components/input-password";
+import "./styles.css";
+
 
 export default function SignUp() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const onSubmit = () => {
+        console.log("Sign Up Form called");
+    }
+
     return (
-        <Form onSubmit={() => {
-            console.log("Sign Up Form called")
-        }}>
-            <FormField label={"Email"} classes={"form-control"}>
-                <InputEmail value={email} onChange={(val) => setEmail(val)} classes={"form-control"}/>
-            </FormField>
-            <FormField label={"Your Name"}>
-                <InputPassword value={password} onChange={(val) => setPassword(val)} classes={"form-control"}/>
-            </FormField>
-        </Form>
+        <div className={"signup"}>
+
+            <div className={"signup-form"}>
+                <Form onSubmit={onSubmit}>
+                    <FormField label={"Email"}>
+                        <InputEmail value={email} onChange={(val: string) => setEmail(val)} classes={"form-control"}/>
+                    </FormField>
+                    <FormField label={"Your Name"}>
+                        <InputPassword value={password} onChange={(val: string) => setPassword(val)}
+                                       classes={"form-control"}/>
+                    </FormField>
+                </Form>
+            </div>
+
+
+            <div className={"signup-image"}>
+                <img src={"https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"}/>
+            </div>
+
+        </div>
     );
 }

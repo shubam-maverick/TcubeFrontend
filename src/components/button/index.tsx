@@ -1,19 +1,16 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Form from "react-bootstrap/Form";
+import React from "react";
 
-export default function Button() {
+export function Button(props: { label: string, onClick?: Function }) {
 
-  function loginButton(){
-    console.error("loginneddd");
-  }
+    let onButtonClick = () => {
+        console.log("Button Clicked");
+        props.onClick?.()
+    }
 
-
-  return (
-    <div>
-      <button type="submit" className="btn btn-primary btn-lg btn-block" >
-        Login
-      </button>
-    </div>
-  );
+    return (
+        <button className="btn btn-primary btn-lg btn-block" onClick={onButtonClick}>
+            {props.label}
+        </button>
+    );
 }

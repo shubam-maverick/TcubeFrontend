@@ -1,3 +1,5 @@
+import React from "react";
+
 export function LeftPanel() {
     return(
         <div>

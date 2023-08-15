@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Form from "react-bootstrap/Form";
 
 export default function About(props : {name :string, mobile : number, email : string, status : string}) {
   return (

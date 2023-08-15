@@ -1,3 +1,5 @@
+import React from "react";
+
 export function ChatTextArea() {
     return (
         <div>

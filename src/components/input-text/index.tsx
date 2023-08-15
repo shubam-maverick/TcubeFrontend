@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
-import {useState} from "react";
+import React, {useState} from "react";
 
 export function InputText(props: { value: string, onChange?: Function, classes?: string }) {
 

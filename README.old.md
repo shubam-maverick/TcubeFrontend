@@ -1,2 +1,0 @@
-# TcubeFrontend
-Best app ever

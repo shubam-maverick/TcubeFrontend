@@ -1,8 +1,8 @@
 import React from "react";
-import ConnectionView from "../../components/connection-view/index.tsx";
+import ConnectionView from "../../components/connection-view";
 
-export default function Connectionlist(){
-    return(
+export default function ConnectionList() {
+    return (
         <ConnectionView/>
     )
 }

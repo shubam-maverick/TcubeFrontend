@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 export function FormField(props: { label: string, children: ReactNode }) {

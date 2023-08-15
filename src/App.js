@@ -1,8 +1,8 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Login from './pages/login/index.tsx';
-import SignUp from './pages/signup/index.tsx';
-import { ChatPage } from './pages/chat/index.tsx';
+import Login from './pages/login';
+import SignUp from './pages/signup';
+import { ChatPage } from './pages/chat';
 
 const router =createBrowserRouter([
   {path:'/', element : <SignUp /> },

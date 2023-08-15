@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
 
 export function Form(props: { onSubmit?: Function, children?: ReactNode }) {
 
